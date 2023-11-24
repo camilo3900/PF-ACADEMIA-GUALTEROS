@@ -1,2 +1,20 @@
-<app-toolbar></app-toolbar>
-<app-sidebar></app-sidebar>
+<!-- Etiqueta del toolbar -->
+<app-toolbar (menu)="openMenu()"></app-toolbar>   
+<!-- Contenedor principal -->
+<mat-drawer-container  class="example-container" autosize>
+      <mat-drawer #drawer class="example-sidenav" mode="side" position="end" [opened]="opensidenav">
+        <button mat-icon-button (click)="closeMenu()">
+            <mat-icon class="close-icon"  type="button" mat-button
+              >arrow_forward</mat-icon> 
+            </button>
+      <app-sidebar></app-sidebar>
+    </mat-drawer>
+    <!-- Contenedor que muestra tablas -->
+          <div class="example-sidenav-content" #idDiv>
+            <!-- AQUI VA EL CONTENIDO PAGES -->       
+            <p>Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+    </mat-drawer-container>
+
+
+
