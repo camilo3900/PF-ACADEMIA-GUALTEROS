@@ -12,6 +12,9 @@ import { AlumnosComponent } from './alumnos.component';
   imports: [
     CommonModule,
     AlumnosRoutingModule
+  ],
+  exports:[
+    AlumnosComponent
   ]
 })
 export class AlumnosModule { }
