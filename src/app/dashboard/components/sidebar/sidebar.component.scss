@@ -1,8 +1,12 @@
+.title-opciones{
+  text-align: center;
+  font-weight: 700;
+}
 mat-list{
     .opcion-item{
       cursor: pointer;
     }
     span{
-      font-weight: 700;
+      font-weight: 500;
     }
 }
