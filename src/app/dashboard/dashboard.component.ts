@@ -10,10 +10,9 @@ export class DashboardComponent {
 
   opensidenav=false;
 
-  @ViewChild('drawer')
-  sidenav?: MatSidenav
-  constructor(){}
 
+  constructor(){}
+  /* funciones para abrir y cerrar menu */
   openMenu():void{this.opensidenav = true}
   closeMenu(): void{this.opensidenav= false}
 

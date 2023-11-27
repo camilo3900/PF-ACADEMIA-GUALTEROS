@@ -7,6 +7,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HomeModule } from './pages/home/home.module';
 import { CursosModule } from './pages/cursos/cursos.module';
 import { AlumnosModule } from './pages/alumnos/alumnos.module';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -22,7 +23,8 @@ import { AlumnosModule } from './pages/alumnos/alumnos.module';
     SharedModule,
     HomeModule,
     CursosModule,
-    AlumnosModule
+    AlumnosModule,
+    RouterModule
   ],
   exports:[
     DashboardComponent
