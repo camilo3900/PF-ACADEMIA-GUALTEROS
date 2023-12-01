@@ -5,6 +5,8 @@ import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { AlumnosComponent } from './dashboard/pages/alumnos/alumnos.component';
 import { CursosComponent } from './dashboard/pages/cursos/cursos.component';
+import { ProfesoresModule } from './dashboard/pages/profesores/profesores.module';
+import { ProfesoresComponent } from './dashboard/pages/profesores/profesores.component';
 
 const routes: Routes = [
   { path: 'dashboard',
@@ -23,6 +25,10 @@ const routes: Routes = [
         component: CursosComponent
       },
       {
+        path: 'profesores',
+        component: ProfesoresComponent
+      },
+      {
         path: '**',
         redirectTo: 'home'
         
@@ -31,7 +37,9 @@ const routes: Routes = [
   },
   {
     path: 'auth',
-    component: AuthComponent
+    component: AuthComponent,
+    
+   
   }
 
 ];

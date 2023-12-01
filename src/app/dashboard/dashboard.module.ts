@@ -8,6 +8,7 @@ import { HomeModule } from './pages/home/home.module';
 import { CursosModule } from './pages/cursos/cursos.module';
 import { AlumnosModule } from './pages/alumnos/alumnos.module';
 import { RouterModule } from '@angular/router';
+import { ProfesoresModule } from './pages/profesores/profesores.module';
 
 
 
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     HomeModule,
     CursosModule,
     AlumnosModule,
+    ProfesoresModule,
     RouterModule
   ],
   exports:[
