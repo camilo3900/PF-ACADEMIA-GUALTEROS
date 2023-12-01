@@ -1,1 +1,11 @@
-<p>cursos works!</p>
+
+<button (click)="agregarCurso()" mat-flat-button color="accent" class="mb-3">
+    <mat-icon >add</mat-icon>
+    Agregar Curso
+</button>
+
+<app-cursos-listado
+[listaCursos]="listadoCursos"
+(editarCurso)="onEdit($event)"
+(eliminarCurso)="onDelete($event)"></app-cursos-listado>
+<!-- (click)="agregarCurso()" -->

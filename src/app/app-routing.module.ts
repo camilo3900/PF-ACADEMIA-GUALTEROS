@@ -4,9 +4,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { AlumnosComponent } from './dashboard/pages/alumnos/alumnos.component';
-import { CursosComponent } from './dashboard/pages/cursos/cursos.component';
-import { ProfesoresModule } from './dashboard/pages/profesores/profesores.module';
 import { ProfesoresComponent } from './dashboard/pages/profesores/profesores.component';
+import { CursosComponent } from './dashboard/pages/cursos/cursos.component';
 
 const routes: Routes = [
   { path: 'dashboard',
@@ -30,7 +29,7 @@ const routes: Routes = [
       },
       {
         path: '**',
-        redirectTo: 'home'
+        redirectTo: 'cursos'
         
       }
     ]
@@ -40,6 +39,10 @@ const routes: Routes = [
     component: AuthComponent,
     
    
+  },
+  {
+    path: '**',
+    redirectTo: 'dashboard'
   }
 
 ];

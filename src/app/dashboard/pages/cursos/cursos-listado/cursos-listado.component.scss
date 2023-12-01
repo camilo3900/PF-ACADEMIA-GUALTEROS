@@ -1,0 +1,9 @@
+.mat-table th {
+    background-color: #4d4d4d;
+    color: white; /* Ajusta el color del texto según sea necesario */
+  }
+  
+  /* Opcional: Puedes agregar estilos adicionales para hover, bordes, etc. */
+  .mat-table th:hover {
+    background-color: #666; /* Cambia el color al pasar el ratón sobre el encabezado */
+  }

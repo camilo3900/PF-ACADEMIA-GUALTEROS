@@ -1,1 +1,67 @@
-<p>cursos-formulario works!</p>
+<h1 mat-dialog-title>{{cursoData? "MODIFICAR CURSO": "CREAR CURSO"}}</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="cursosForm">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100">
+                    <mat-label>NOMBRE CURSO</mat-label>
+                    <input matInput formControlName="nombre">
+                    <mat-error></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+              <mat-form-field>
+                <mat-label>ESTADO</mat-label>
+                <mat-select formControlName="estado">
+                  <mat-option *ngFor="let estado of estados" [value]="estado.value">{{ estado.viewValue }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field>
+                    <mat-label>FECHA INICIO</mat-label>
+                    <input matInput [matDatepicker]="dateInicio" formControlName="fechaInicio">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dateInicio"></mat-datepicker-toggle>
+                    <mat-datepicker #dateInicio>
+                      <mat-datepicker-actions>
+                        <button Fintton mat-raised-button matDatepickerCancel>Cancelar</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+               
+            </div>
+            <div class="col-6">
+                <mat-form-field class="w-100" >
+                    <mat-label>FECHA FINAL</mat-label>
+                    <input matInput [matDatepicker]="dateFin" formControlName="fechaFin">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="dateFin"></mat-datepicker-toggle>
+                    <mat-datepicker #dateFin>
+                      <mat-datepicker-actions>
+                        <button mat-raised-button matDatepickerCancel>Cancelar</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
+                      </mat-datepicker-actions>
+                    </mat-datepicker>
+                </mat-form-field>
+      
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="col-12">
+          <div class="col-12 mb-4">
+            <button [disabled]="cursosForm.invalid" mat-flat-button color="warn" (click)="onSubmit()" class="w-100">Guardar</button>
+          </div>
+          <div class="col-12">
+            <button  mat-flat-button color="warn" (click)="closeForm()" class="w-100">Cerrar</button>
+          </div>
+          
+        </div>
+    </form>
+  
+ 
+</div>
