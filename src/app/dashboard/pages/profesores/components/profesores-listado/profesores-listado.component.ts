@@ -11,7 +11,7 @@ export class ProfesoresListadoComponent {
   @Input()
   dataSource: Array<Profesor> = [];
   @Output()
-  editProfesor= new EventEmitter();
+  editProfesor= new EventEmitter<Profesor>();
   @Output()
   deleteProfesor = new EventEmitter<number>();
   

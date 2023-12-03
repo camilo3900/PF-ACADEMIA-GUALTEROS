@@ -1,1 +1,50 @@
-<p>profesores-formulario works!</p>
+<h1 mat-dialog-title>
+    {{ isEditing ? "Editando Profesor" : "Creando Profesor" }}
+  </h1>
+
+<div mat-dialog-content>
+  <!-- Contenido... -->
+  <form [formGroup]="profesoresForm" class="mb-4">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nombre</mat-label>
+          <input formControlName='nombre' matInput />
+          <mat-error>{{profesorNombre.errors | formErrors}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field>
+          <mat-label>Apellido</mat-label>
+          <input formControlName='apellido' matInput />
+          <mat-error>{{profesorApellido.errors | formErrors}}</mat-error>
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="row w-100">
+
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Correo</mat-label>
+          <input formControlName='correo' matInput />
+          <mat-error>{{profesorCorreo.errors| formErrors}}</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  </form>
+  <div mat-dialog-actions class="form-profesor">
+    <div class="row w-100">
+      <div class="col-12 mb-4">
+        <button mat-flat-button color="accent" (click)="onsubmit()" class="w-100">Guardar</button>
+      </div>
+
+      <div class="col-12 ">
+        <button mat-dialog-close mat-flat-button color="accent" class="w-100">Cancelar</button>
+      </div>
+
+    </div>
+  </div>
+</div>

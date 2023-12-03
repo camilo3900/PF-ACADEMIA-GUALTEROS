@@ -1,1 +1,9 @@
-<app-profesores-listado></app-profesores-listado>
+<h1>PROFESORES</h1>
+<button (click)="addProfesor()" mat-raised-button color="accent" class="mb-3">
+    <mat-icon> add </mat-icon>
+    AGREGAR PROFESOR
+</button>
+<app-profesores-listado
+[dataSource]="(lista$ | async)|| []"
+(editProfesor)="editProfesor($event)"
+(deleteProfesor)="eliminarProfesor($event)"></app-profesores-listado>
