@@ -35,6 +35,19 @@ export class CursosFormularioComponent {
     }
   }
 
+  get nombreControl(){
+    return this.cursosForm.controls['nombre'];
+  }
+  get estadoControl(){
+    return this.cursosForm.controls['estado'];
+  }
+  get fechaInicioControl(){
+    return this.cursosForm.controls['fechaInicio'];
+  }
+  get fechaFinControl(){
+    return this.cursosForm.controls['fechaFin'];
+  }
+
   closeForm(): void{
     this.matDialogRef.close();
   }

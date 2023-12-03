@@ -7,7 +7,7 @@
                 <mat-form-field class="w-100">
                     <mat-label>NOMBRE CURSO</mat-label>
                     <input matInput formControlName="nombre">
-                    <mat-error></mat-error>
+                    <mat-error>{{nombreControl.errors | formErrors}}</mat-error>
                 </mat-form-field>
             </div>
             <div class="col-6">
@@ -16,6 +16,7 @@
                 <mat-select formControlName="estado">
                   <mat-option *ngFor="let estado of estados" [value]="estado.value">{{ estado.viewValue }}</mat-option>
                 </mat-select>
+                <mat-error>{{estadoControl.errors | formErrors}}</mat-error>
               </mat-form-field>
             </div>
         </div>
@@ -32,6 +33,7 @@
                         <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
                       </mat-datepicker-actions>
                     </mat-datepicker>
+                    <mat-error>{{fechaInicioControl.errors | formErrors}}</mat-error>
                 </mat-form-field>
                
             </div>
@@ -47,6 +49,7 @@
                         <button mat-raised-button color="primary" matDatepickerApply>Aplicar</button>
                       </mat-datepicker-actions>
                     </mat-datepicker>
+                    <mat-error>{{fechaFinControl.errors | formErrors}}</mat-error>
                 </mat-form-field>
       
             </div>

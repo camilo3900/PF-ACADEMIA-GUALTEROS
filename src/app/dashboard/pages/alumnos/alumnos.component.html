@@ -1,1 +1,6 @@
-<p>alumnos works!</p>
+<button (click)="agregarAlumno()" mat-raised-button color="accent" class="mb-4">
+    <mat-icon>add</mat-icon>
+    INSCRIBIR ALUMNO
+</button>
+<app-alumnos-listado
+[dataAlumnos]="listado"></app-alumnos-listado>

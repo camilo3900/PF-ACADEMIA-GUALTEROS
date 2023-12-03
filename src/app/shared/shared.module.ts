@@ -14,9 +14,11 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
+import { FullNamePipe } from './pipes/full-name.pipe';
 @NgModule({
   declarations: [
-    FormErrorsPipe
+    FormErrorsPipe,
+    FullNamePipe
   ],
   imports: [
     CommonModule
@@ -34,7 +36,9 @@ import {MatInputModule} from '@angular/material/input';
     MatDatepickerModule,
     MatDialogModule,
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
+    FormErrorsPipe,
+    FullNamePipe
   ]
 })
 export class SharedModule { }

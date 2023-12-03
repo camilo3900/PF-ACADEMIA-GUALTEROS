@@ -5,6 +5,7 @@ import { AlumnosRoutingModule } from './alumnos-routing.module';
 import { AlumnosComponent } from './alumnos.component';
 import { AlumnosFormularioComponent } from './components/alumnos-formulario/alumnos-formulario.component';
 import { AlumnosListadoComponent } from './components/alumnos-listado/alumnos-listado.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { AlumnosListadoComponent } from './components/alumnos-listado/alumnos-li
   ],
   imports: [
     CommonModule,
-    AlumnosRoutingModule
+    AlumnosRoutingModule,
+    SharedModule
   ],
   exports:[
     AlumnosComponent

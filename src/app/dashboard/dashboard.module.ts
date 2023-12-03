@@ -4,13 +4,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { DashboardComponent } from './dashboard.component';
 import { SharedModule } from '../shared/shared.module';
-import { HomeModule } from './pages/home/home.module';
-import { AlumnosModule } from './pages/alumnos/alumnos.module';
-import { RouterModule } from '@angular/router';
-import { ProfesoresModule } from './pages/profesores/profesores.module';
-import { CursosModule } from './pages/cursos/cursos.module';
-
-
+import { DashboardRoutingModule } from './dashboard-routing.module';
 
 
 @NgModule({
@@ -22,11 +16,7 @@ import { CursosModule } from './pages/cursos/cursos.module';
   imports: [
     CommonModule,
     SharedModule,
-    HomeModule,
-    CursosModule,
-    AlumnosModule,
-    ProfesoresModule,
-    RouterModule
+    DashboardRoutingModule
   ],
   exports:[
     DashboardComponent
