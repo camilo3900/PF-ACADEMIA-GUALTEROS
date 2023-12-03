@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Alumno } from 'src/app/models/alumno.class';
+import { AlumnosService } from '../../alumnos.service';
 
 @Component({
   selector: 'app-alumnos-formulario',
@@ -11,7 +13,10 @@ export class AlumnosFormularioComponent {
 
   alumnoForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<AlumnosFormularioComponent>){
+  constructor(private fb: FormBuilder, private matDialogRef: MatDialogRef<AlumnosFormularioComponent>,
+    private servicio: AlumnosService,
+    @Inject(MAT_DIALOG_DATA)
+    public isEditing?: Alumno){
 
      /* Validaciones formulario de alumnos */
      this.alumnoForm  = this.fb.group({
@@ -20,6 +25,28 @@ export class AlumnosFormularioComponent {
       correo: ["", [Validators.required, Validators.email]]
     });
 
+    if (!!this.isEditing) {
+      this.servicio.getAlumnosById$(this.isEditing.id).subscribe({
+        next: (result)=>{
+          if(result){
+            this.alumnoForm.patchValue(result);
+          }
+          
+        }
+      })
+        
+    }
+
+  }
+
+  get nombreControl(){
+    return this.alumnoForm.controls['nombre']
+  }
+  get apellidoControl(){
+    return this.alumnoForm.controls['apellido']
+  }
+  get correoControl(){
+    return this.alumnoForm.controls['correo']
   }
 
 

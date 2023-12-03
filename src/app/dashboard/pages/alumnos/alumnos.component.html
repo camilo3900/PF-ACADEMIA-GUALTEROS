@@ -3,4 +3,6 @@
     INSCRIBIR ALUMNO
 </button>
 <app-alumnos-listado
-[dataAlumnos]="listado"></app-alumnos-listado>
+[dataAlumnos]="(listado$ | async) || []"
+(editAlumno)="editarAlumno($event)"
+(deleteAlumno)="eliminarAlumno($event)"></app-alumnos-listado>

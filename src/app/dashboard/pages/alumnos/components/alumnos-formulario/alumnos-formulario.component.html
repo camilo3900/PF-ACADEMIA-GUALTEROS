@@ -1,4 +1,4 @@
-<!-- <h1 mat-dialog-title appFuenteTitulos>  {{ isEditing? "Editando Alumno" : "Crear Alumno" }}</h1> -->
+<h1 mat-dialog-title appFuenteTitulos>  {{ isEditing? "Editando Alumno" : "Crear Alumno" }}</h1>
 <div mat-dialog-content>
     <!-- CONTENIDO -->
 
@@ -9,7 +9,7 @@
                     <mat-label>NOMBRE</mat-label>
                     <input matInput formControlName="nombre" matInput/>
                     <mat-error>
-                        {{alumnoForm.get('nombre')?.errors| formErrors}}
+                        {{nombreControl.errors| formErrors}}
                     </mat-error>
                 </mat-form-field>
             </div>
@@ -18,7 +18,7 @@
                     <mat-label>APELLIDO</mat-label>
                     <input matInput formControlName="apellido" matInput/>
                     <mat-error>
-                        {{ alumnoForm.get('apellido')?.errors| formErrors}}
+                        {{ apellidoControl.errors| formErrors}}
                     </mat-error>
                 </mat-form-field>
             </div>
@@ -29,7 +29,7 @@
                     <mat-label>CORREO</mat-label>
                     <input matInput formControlName="correo" matInput />
                     <mat-error>
-                        {{alumnoForm.get('correo')?.errors| formErrors}}
+                        {{correoControl.errors| formErrors}}
                     </mat-error>
                 </mat-form-field>
             </div>
@@ -38,7 +38,7 @@
 </div>
 
 <div mat-dialog-actions>
-[disabled]="activateButton()==true"
-    <button mat-flat-button  (click)="onSubmit()"  color="accent" class="w-100 mb-3" >GUARDAR</button>
+
+    <button mat-flat-button [disabled]="alumnoForm.invalid"  (click)="onSubmit()"  color="accent" class="w-100 mb-3" >GUARDAR</button>
     <button mat-flat-button mat-dialog-close  color="accent" class="w-100">CANCELAR</button>
 </div>
