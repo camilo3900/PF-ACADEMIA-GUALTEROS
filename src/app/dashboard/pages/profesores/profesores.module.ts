@@ -3,15 +3,21 @@ import { CommonModule } from '@angular/common';
 
 import { ProfesoresRoutingModule } from './profesores-routing.module';
 import { ProfesoresComponent } from './profesores.component';
+import { ProfesoresListadoComponent } from './components/profesores-listado/profesores-listado.component';
+import { ProfesoresFormularioComponent } from './components/profesores-formulario/profesores-formulario.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    ProfesoresComponent
+    ProfesoresComponent,
+    ProfesoresListadoComponent,
+    ProfesoresFormularioComponent
   ],
   imports: [
     CommonModule,
-    ProfesoresRoutingModule
+    ProfesoresRoutingModule,
+    SharedModule
   ],
   exports:[
     ProfesoresComponent

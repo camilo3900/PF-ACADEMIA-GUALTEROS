@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { CursosFormularioComponent } from './cursos-formulario/cursos-formulario.component';
+import { CursosFormularioComponent } from './components/cursos-formulario/cursos-formulario.component';
 import { Curso, Disponible } from 'src/app/models/curso.class';
 
 @Component({
