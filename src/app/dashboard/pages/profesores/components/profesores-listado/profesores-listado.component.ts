@@ -15,7 +15,6 @@ export class ProfesoresListadoComponent {
   @Output()
   deleteProfesor = new EventEmitter<number>();
   
-  
-
+  /* array de encabezados de tabla-profesores*/
   displayedColumns= [ "id", "fullname", "email", "events"];
 }

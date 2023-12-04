@@ -3,9 +3,10 @@
     <mat-icon >add</mat-icon>
     AGREGAR CURSO
 </button>
-
 <app-cursos-listado
-[listaCursos]="listadoCursos"
-(editarCurso)="onEdit($event)"
-(eliminarCurso)="onDelete($event)"></app-cursos-listado>
-<!-- (click)="agregarCurso()" -->
+[listaCursos]="(cursos | async) || []"
+(editarCurso)="editarCurso($event)"
+></app-cursos-listado>
+
+<!-- (editarCurso)="onEdit($event)"
+(eliminarCurso)="onDelete($event)" -->

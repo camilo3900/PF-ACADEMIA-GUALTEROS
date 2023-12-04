@@ -30,15 +30,14 @@ export class AlumnosFormularioComponent {
         next: (result)=>{
           if(result){
             this.alumnoForm.patchValue(result);
-          }
-          
+          }   
         }
       })
         
     }
 
   }
-
+  /* Metodos para obtener los controls del formulario */
   get nombreControl(){
     return this.alumnoForm.controls['nombre']
   }
@@ -49,7 +48,7 @@ export class AlumnosFormularioComponent {
     return this.alumnoForm.controls['correo']
   }
 
-
+  /* Funcion para enviar datos del form */
   onSubmit(): void{
 
     if(this.alumnoForm.invalid){

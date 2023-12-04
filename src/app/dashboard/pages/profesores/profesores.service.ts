@@ -53,25 +53,26 @@ export class ProfesoresService {
 
   }
 
-  /* Se crea el metodo para obtener el listado de profesores */
-
-
+  /* metodo para obtener listado de profesores */
   getProfesores$(): Observable<Array<Profesor>>{
     return of(this.listaProfes)
   }
+  /* metodo para agregar profesores */
   agregarProfesores$(profesor: Profesor): Observable<Array<Profesor>>{
     this.listaProfes.push(profesor);
     return of([...this.listaProfes])
   }
+  /* metodo para editar profesores  */
   editarProfesores$(profeId: number, pyload: Profesor): Observable<Array<Profesor>>{
     this.listaProfes = this.listaProfes.map((dato)=> dato.id === profeId?{...dato,...pyload }: dato)
     return of([...this.listaProfes])
   }
+  /* metodo para eliminar profesors */
   eliminarProfesores$(profeId: number): Observable<Array<Profesor>>{
     this.listaProfes = this.listaProfes.filter((el)=>el.id !== profeId);
     return of([...this.listaProfes])
   }
-
+  /* metodo para referenciar profesor por id en el formulario */
   getProfesorById$(profeId: number): Observable<Profesor|undefined>{
     return of(this.listaProfes.find((pro)=>pro.id === profeId))
   }

@@ -5,7 +5,7 @@ import { PATTERN } from 'src/app/models/patterns/patterns';
 @Pipe({
   name: 'formErrors'
 })
-export class FormErrorsPipe implements PipeTransform {
+export class FormErrorsPipe implements PipeTransform {/* Pipe para mostrar mat-erros de formularios */
 
   transform(value: ValidationErrors| null | undefined, ...args: unknown[]): unknown {
     const mensajesError: Array<string> = []

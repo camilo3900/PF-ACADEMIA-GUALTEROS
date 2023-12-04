@@ -18,7 +18,6 @@ export class AlumnosComponent {
     /* Se carga el listado de alumnos del servicio */
     this.listado$ = this.servicio.obtenerAlumnos$();
   }
-
   agregarAlumno(): void{
     this.matDialog.open(AlumnosFormularioComponent).afterClosed().subscribe({
       next: (result)=>{
@@ -29,7 +28,8 @@ export class AlumnosComponent {
               id: value.length+1,
               nombre: result.nombre,
               apellido: result.apellido,
-              correo: result.correo
+              correo: result.correo,
+              edad: 1
             }
           })).subscribe({
             complete: () =>{

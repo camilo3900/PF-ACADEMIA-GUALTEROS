@@ -4,7 +4,7 @@ import { AuthComponent } from './auth/auth.component';
 
 
 const routes: Routes = [
-  { 
+  { /* Se definen como rutas principales el dashboard y el auth */
     path: 'dashboard',
     loadChildren: () =>import('./dashboard/dashboard.module').then((m)=> m.DashboardModule)
   },
@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then((m)=>m.AuthModule)
 
   },
-  {
+  {/* Por defecto se mostrará el login */
     path: '**',
     redirectTo: 'dashboard'
   }

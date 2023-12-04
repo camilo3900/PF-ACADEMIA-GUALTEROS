@@ -1,4 +1,4 @@
-<!-- Etiqueta del toolbar -->
+<!-- AQUI VA EL TOOLBAR -->
 <app-toolbar (menu)="openMenu()"></app-toolbar>   
 <!-- Contenedor principal -->
 <mat-drawer-container  class="example-container" autosize>
@@ -10,9 +10,9 @@
             <!-- Aqui va el sidebar con el menu de opciones -->
       <app-sidebar></app-sidebar>
     </mat-drawer>
-    <!-- Contenedor de listado de alumnos, cursos, profesores, inscripcione -->
+    <!-- Contenedor de listado de alumnos, cursos, profesores, inscripciones -->
           <div class="example-sidenav-content" #idDiv>
-            <!-- AQUI VA EL CONTENIDO PAGES -->       
+            <!-- AQUI VAN LAS PAGES DEL DASHBOARD -->       
             <router-outlet></router-outlet>
           </div>
     </mat-drawer-container>

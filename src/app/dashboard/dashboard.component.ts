@@ -12,7 +12,7 @@ export class DashboardComponent {
 
 
   constructor(){}
-  /* funciones para abrir y cerrar menu */
+  /* funciones para abrir y cerrar sidenav */
   openMenu():void{this.opensidenav = true}
   closeMenu(): void{this.opensidenav= false}
 

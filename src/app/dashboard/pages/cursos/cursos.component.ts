@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { CursosFormularioComponent } from './components/cursos-formulario/cursos-formulario.component';
 import { Curso, Disponible } from 'src/app/models/curso.class';
+import { Observable, map } from 'rxjs';
+import { CursosService } from './cursos.service';
 
 @Component({
   selector: 'app-cursos',
@@ -9,58 +11,48 @@ import { Curso, Disponible } from 'src/app/models/curso.class';
   styleUrls: ['./cursos.component.scss']
 })
 export class CursosComponent {
-  listadoCursos: Array<Curso> = [
-    {
-      id: 1,
-      nombre: "Curso de Propulsión Espacial",
-      fechaInicio: new Date("2023-01-01"),
-      fechaFin: new Date("2023-02-01"),
-      estado: Disponible.habilitado
-  },
-  {
-      id: 2,
-      nombre: "Astronavegación Avanzada",
-      fechaInicio: new Date("2023-02-15"),
-      fechaFin: new Date("2023-03-15"),
-      estado: Disponible.habilitado
-  },
-  ];
-  constructor(private matDialog: MatDialog){
-
+  cursos: Observable<Array<Curso>> /* Variable para almacenar cursos */
+  constructor(private matDialog: MatDialog, private servicio: CursosService){
+    this.cursos = this.servicio.obtenerCursos$();/* Se obtiene el listado llamando el servicio */
   }
   agregarCurso(): void{
-
     this.matDialog.open(CursosFormularioComponent).afterClosed().subscribe({
-      next: (valor)=>{
-        if(!!valor){
-          this.listadoCursos = [
-            ...this.listadoCursos,
-            {
-              ...valor,
-              id: this.listadoCursos.length+1
+      next: (result)=>{
+        if(result){
+          let nuevoCurso : Curso;
+          this.servicio.obtenerCursos$().pipe(map((el)=>{
+            nuevoCurso = {
+              id: el.length+1,
+              nombre: result.nombre,
+              estado: result.estado,
+              fechaInicio: result.fechaInicio,
+              fechaFin: result.fechaFin
             }
-          ]
+          })).subscribe({
+            complete: ()=>{
+              this.cursos = this.servicio.agregarCurso$(nuevoCurso);
+            }
+          })
         }
-        
       }
     })
-
-
   }
-
-  onEdit(corso: Curso){
-    this.matDialog.open(CursosFormularioComponent,{
-      data: corso,
-    }).afterClosed().subscribe({
-      next: (ev)=>{
-        this.listadoCursos = this.listadoCursos.map((curso)=> curso.id === corso.id ? {...curso, ...ev}: curso)
+  /* Funcion para editar Curso */
+  editarCurso(curso: Curso): void{
+    this.matDialog.open(CursosFormularioComponent, {
+      data: curso
+    }).afterClosed()
+    .subscribe({
+      next: (result)=>{
+        if(!!result){
+          /* Se llama el servicio para editar curso */
+          this.cursos = this.servicio.editarCurso$(result, curso.id);
+        }
       }
-
     })
-
   }
-  onDelete(corsoId: number): void{
-    this.listadoCursos = this.listadoCursos.filter((curso)=>(curso.id !== corsoId));
+  eliminarCurso(cursoId: number): void{
+    /* Se llama el servicio para eliminar curso */
+    this.cursos = this.servicio.eliminarCurso$(cursoId);
   }
-
 }
