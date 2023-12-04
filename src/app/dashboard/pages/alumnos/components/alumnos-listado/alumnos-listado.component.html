@@ -23,6 +23,9 @@
     <ng-container matColumnDef="opciones" >
         <th mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let alumno" class="acciones">
+            <button (click)="detailAlumno(alumno.id)" mat-icon-button color="warn">
+                <mat-icon class="mat-icon">visibility</mat-icon>
+              </button>
             <button mat-icon-button (click)="editAlumno.emit(alumno)">
                 <mat-icon color="warn">edit</mat-icon>
             </button>
