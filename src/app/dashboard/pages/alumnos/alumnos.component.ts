@@ -4,6 +4,7 @@ import { AlumnosService } from './alumnos.service';
 import { Observable, map } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { AlumnosFormularioComponent } from './components/alumnos-formulario/alumnos-formulario.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-alumnos',
@@ -33,6 +34,11 @@ export class AlumnosComponent {
             }
           })).subscribe({
             complete: () =>{
+              Swal.fire({
+                title: "Operacion Exitosa!",
+                text: `Se agregado a ${nuevoAlumno.nombre} en la lista de alumnos! `,
+                icon: "success"
+              });
              this.listado$= this.servicio.agregarAlumno$(nuevoAlumno);
             }
           })
@@ -55,8 +61,27 @@ export class AlumnosComponent {
     })
   }
 
-  eliminarAlumno(alumnoId: number){
+  eliminarAlumno(alumnoId: number): void{
+    Swal.fire({
+      title: '¿Deseas eliminar este curso?',
+      text: 'Esta acción no se puede deshacer',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Aquí se filtra el nombre del alumno
+        this.servicio.getAlumnosById$(alumnoId).pipe(map((c)=>c?.nombre)).subscribe((nombre=>{
+          if(nombre){
+            Swal.fire('Eliminado', `El alumno ${nombre} ha sido eliminado`, 'success');            
+          }
+        }));
     this.listado$ = this.servicio.eliminarAlumno$(alumnoId);
+     
+      }
+    });
+    
   }
 
 }

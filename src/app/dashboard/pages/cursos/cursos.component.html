@@ -4,8 +4,9 @@
     AGREGAR CURSO
 </button>
 <app-cursos-listado
-[listaCursos]="(cursos | async) || []"
+[listaCursos]="(cursos$ | async) || []"
 (editarCurso)="editarCurso($event)"
+(eliminarCurso)="eliminarCurso($event)"
 ></app-cursos-listado>
 
 <!-- (editarCurso)="onEdit($event)"

@@ -13,11 +13,7 @@ export class AuthService {
   private _authUser$ = new BehaviorSubject<Usuario | null>(null);
   public authUser = this._authUser$.asObservable();
   constructor(private httpClient: HttpClient, private router: Router) { 
-
   }
-
-
-
   login(payload: Login): void {
     this.httpClient
     .get<Usuario[]>(`${environment.baseUrl}/usuarios?${payload.email}&password=${payload.password}`

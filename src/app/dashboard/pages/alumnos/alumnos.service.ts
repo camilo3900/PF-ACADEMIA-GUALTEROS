@@ -1,69 +1,40 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, concatMap, find, map, of } from 'rxjs';
 import { Alumno } from 'src/app/models/alumno.class';
+import { environment } from 'src/environments/environment.local';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AlumnosService {
-  alumnos: Array<Alumno> =[
-    {
-      id:1,
-      nombre: "Laura",
-      apellido: "Vidal",
-      correo: "lara.1629@email.com",
-      edad:15
-    },
-    {
-      id:2,
-      nombre: "Diego",
-      apellido: "Patarroyo",
-      correo: "diego@email.com",
-      edad:22
-    },
-    {
-      id:3,
-      nombre: "Fabian",
-      apellido: "Guevara",
-      correo: "fgue.33@email.com",
-      edad:36
-    },
-    {
-      id:4,
-      nombre: "Luis",
-      apellido: "Escobar",
-      correo: "lucho@email.com",
-      edad:18
-    },
-    {
-      id:5,
-      nombre: "Manuel",
-      apellido: "Ortiz",
-      correo: "manuel@email.com",
-      edad:24
-    },
-  ];
-  constructor() { }
+  alumnos: Array<Alumno> =[];
+  constructor(private httpClient: HttpClient) { }
 
 
 
   obtenerAlumnos$(): Observable<Array<Alumno>>{
-    return of(this.alumnos)
+    return this.httpClient.get<Array<Alumno>>(`${environment.baseUrl}/alumnos`);
   }
 
   agregarAlumno$(alumno: Alumno): Observable<Array<Alumno>>{
-    this.alumnos.push(alumno);
-    return of([...this.alumnos])
+    return this.httpClient
+    .post<Alumno>(`${environment.baseUrl}/alumnos`, alumno)
+    .pipe(concatMap(()=>this.obtenerAlumnos$()));
   }
   editarAlumno$(alumno: Alumno, alumnoId: number): Observable<Array<Alumno>>{
-    this.alumnos = this.alumnos.map((al)=>al.id === alumnoId?{...al, ...alumno}:al);
-    return of([...this.alumnos])
+    return this.httpClient
+      .put<Alumno>(`${environment.baseUrl}/alumnos/${alumnoId}`, alumno)
+      .pipe(concatMap(() => this.obtenerAlumnos$()));
   }
 
   eliminarAlumno$(alumnoId: number): Observable<Array<Alumno>>{
-    return of([...(this.alumnos=this.alumnos.filter((al)=>al.id !== alumnoId))])
+    return this.httpClient
+    .delete<Object>(`${environment.baseUrl}/alumnos/${alumnoId}`)
+    .pipe(concatMap(()=>this.obtenerAlumnos$()))
   }
   getAlumnosById$(alumnoId: number): Observable<Alumno|undefined>{
-    return of(this.alumnos.find((el)=>el.id === alumnoId))
+    return this.obtenerAlumnos$().pipe(
+      map(alumnos => alumnos.find(alumno => alumno.id === alumnoId)))
   }
 }

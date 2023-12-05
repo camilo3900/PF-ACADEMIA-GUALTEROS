@@ -25,8 +25,8 @@ export class AlumnosFormularioComponent {
       correo: ["", [Validators.required, Validators.email]]
     });
 
-    if (!!this.isEditing) {
-      this.servicio.getAlumnosById$(this.isEditing.id).subscribe({
+    if (isEditing) {
+      this.servicio.getAlumnosById$(isEditing.id).subscribe({
         next: (result)=>{
           if(result){
             this.alumnoForm.patchValue(result);

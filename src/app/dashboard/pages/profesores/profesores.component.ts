@@ -14,7 +14,7 @@ import { ProfesoresFormularioComponent } from './components/profesores-formulari
 export class ProfesoresComponent {
     lista$: Observable<Array<Profesor>>;
   constructor(private matDialog: MatDialog, private service: ProfesoresService){
-    this.lista$ = service.getProfesores$();
+    this.lista$ = service.obtenerProfesores$();
   }
 
   addProfesor(){
@@ -22,7 +22,7 @@ export class ProfesoresComponent {
       next: (value)=>{
         if (value) {
           let nuevoProfesor: Profesor;
-          this.service.getProfesores$().pipe(map((profeArray)=>{
+          this.service.obtenerProfesores$().pipe(map((profeArray)=>{
             nuevoProfesor ={
               id: profeArray.length+1,
               nombre: value.nombre,

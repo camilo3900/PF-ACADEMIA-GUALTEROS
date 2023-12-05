@@ -7,7 +7,7 @@
       "correo": "carlos@mail.com",
       "password": "carlos.1234",
       "token": "1ekmfldk3s4ad23cf5milds",
-      "rol": "ADMIN"
+      "role": "ADMIN"
     },
     {
       "id": 2,
@@ -16,7 +16,7 @@
       "correo": "vic.98@mail.com",
       "password": "1234.victor",
       "token": "cmf3idl4s2dkek4mfld3a1f",
-      "rol": "ADMIN"
+      "role": "ADMIN"
     },
     {
       "nombre": "admin",
@@ -24,7 +24,7 @@
       "correo": "admin@email.com",
       "password": "admin.1234",
       "token": "iadfmdlf33cedmk434ds",
-      "rol": "USER",
+      "role": "USER",
       "id": 3
     },
     {
@@ -33,8 +33,122 @@
       "correo": "juan@email.com",
       "password": "juan.1234",
       "token": "iadfm3lfd3ccdmk434ds",
-      "rol": "USER",
+      "role": "USER",
       "id": 4
+    }
+  ],
+  "alumnos": [
+    {
+      "id": 1,
+      "nombre": "Claudia",
+      "apellido": "Valencia",
+      "correo": "clau@email.com",
+      "edad": 15
+    },
+    {
+      "nombre": "Diegoa",
+      "apellido": "Patarroyo",
+      "correo": "diego@email.com",
+      "id": 2
+    },
+    {
+      "nombre": "Dariusa",
+      "apellido": "Homayoun",
+      "correo": "dr@email.com",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Luis",
+      "apellido": "Escobar",
+      "correo": "lucho@email.com",
+      "edad": 18
+    },
+    {
+      "nombre": "Manuela",
+      "apellido": "Ortiz",
+      "correo": "manuel@email.com",
+      "id": 5
+    }
+  ],
+  "cursos": [
+    {
+      "id": 1,
+      "nombre": "Simulación de Vuelos",
+      "estado": "Disponible",
+      "fechaInicio": "2023-01-01",
+      "fechaFin": "2023-02-01"
+    },
+    {
+      "id": 2,
+      "nombre": "Manejo de Sistemas de Propulsion",
+      "estado": "Agotado",
+      "fechaInicio": "2023-02-15",
+      "fechaFin": "2023-03-15"
+    },
+    {
+      "nombre": "Metodología Espaciales",
+      "estado": "Disponible",
+      "fechaInicio": "2023-01-01",
+      "fechaFin": "2023-03-15",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "nombre": "Proyectos Espaciales",
+      "estado": "Disponible",
+      "fechaInicio": "2023-02-15",
+      "fechaFin": "2023-03-15"
+    },
+    {
+      "nombre": "Armamento Espaciales",
+      "estado": "Disponible",
+      "fechaInicio": "2023-01-01",
+      "fechaFin": "2023-03-15",
+      "id": 5
+    }
+  ],
+  "profesores": [
+    {
+      "nombre": "Charles",
+      "apellido": "Darwin",
+      "correo": "chx@email.com",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "nombre": "Erik",
+      "apellido": "Puentes",
+      "correo": "ep.45@email.com",
+      "edad": 44
+    },
+    {
+      "id": 3,
+      "nombre": "Darius",
+      "apellido": "Homayoun",
+      "correo": "dr@email.com",
+      "edad": 32
+    },
+    {
+      "id": 4,
+      "nombre": "Dario",
+      "apellido": "Gomez",
+      "correo": "gomes.1407@email.com",
+      "edad": 54
+    },
+    {
+      "id": 5,
+      "nombre": "Christian",
+      "apellido": "Rincón",
+      "correo": "rincon@email.com",
+      "edad": 48
+    },
+    {
+      "id": 6,
+      "nombre": "Rodrigo",
+      "apellido": "Marangoni",
+      "correo": "rm@email.com",
+      "edad": 45
     }
   ]
 }

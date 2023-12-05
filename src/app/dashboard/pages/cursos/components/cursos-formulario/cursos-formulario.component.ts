@@ -12,7 +12,7 @@ import { CursosService } from '../../cursos.service';
 export class CursosFormularioComponent {
 
   cursosForm: FormGroup;
-  selectedFood : string = "";
+  selected : string = "";
   /* Se crea un array de objetos con los estados (disponible|agotado) de los cursos */
   estados = [
     {value: 'Disponible', viewValue: 'Disponible'},
@@ -27,7 +27,7 @@ export class CursosFormularioComponent {
 
     this.cursosForm = this.fb.group({
       nombre: new FormControl("", [Validators.required]),
-      estado: new FormControl(this.selectedFood, [Validators.required]),
+      estado: new FormControl(this.selected.valueOf, [Validators.required]),
       fechaInicio: new FormControl("", [Validators.required]),
       fechaFin: new FormControl("", [Validators.required])
     })
