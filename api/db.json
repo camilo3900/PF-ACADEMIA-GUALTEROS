@@ -1,0 +1,40 @@
+{
+  "usuarios": [
+    {
+      "id": 1,
+      "nombre": "Carlos",
+      "lastname": "Peralta",
+      "correo": "carlos@mail.com",
+      "password": "carlos.1234",
+      "token": "1ekmfldk3s4ad23cf5milds",
+      "rol": "ADMIN"
+    },
+    {
+      "id": 2,
+      "nombre": "Victor",
+      "lastname": "Hernandez",
+      "correo": "vic.98@mail.com",
+      "password": "1234.victor",
+      "token": "cmf3idl4s2dkek4mfld3a1f",
+      "rol": "ADMIN"
+    },
+    {
+      "nombre": "admin",
+      "lastname": "admin",
+      "correo": "admin@email.com",
+      "password": "admin.1234",
+      "token": "iadfmdlf33cedmk434ds",
+      "rol": "USER",
+      "id": 3
+    },
+    {
+      "nombre": "Juan",
+      "lastname": "Dominguez",
+      "correo": "juan@email.com",
+      "password": "juan.1234",
+      "token": "iadfm3lfd3ccdmk434ds",
+      "rol": "USER",
+      "id": 4
+    }
+  ]
+}
