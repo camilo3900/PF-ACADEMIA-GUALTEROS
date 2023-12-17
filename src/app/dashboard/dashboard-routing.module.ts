@@ -6,6 +6,7 @@ import { AlumnosComponent } from './pages/alumnos/alumnos.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProfesoresComponent } from './pages/profesores/profesores.component';
 import { InscripcionesComponent } from './pages/inscripciones/inscripciones.component';
+import { inscripcionesGuard } from '../core/guards/inscripciones.guard';
 
 const routes: Routes = [
     {
@@ -30,6 +31,7 @@ const routes: Routes = [
               },
               {
                 path: 'inscripciones',
+                canActivate: [inscripcionesGuard],
                 loadChildren: () => import('./pages/inscripciones/inscripciones.module').then(m=>m.InscripcionesModule)
               },
               {

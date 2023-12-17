@@ -5,10 +5,8 @@ import { AuthService } from 'src/app/auth/auth.service';
 
 export const dashboardGuard: CanActivateFn = (route, state) => {
 
-  /* let ingresar: boolean = true; */
   const router = inject(Router);
   const servicio = inject(AuthService);
-  console.log("dashboard guarsd");
 
   return servicio
   .verifyToken()
@@ -17,5 +15,4 @@ export const dashboardGuard: CanActivateFn = (route, state) => {
         usuarioAutenticado ? true : router.createUrlTree(['/auth/login'])
     )
   );
-/*   return router.createUrlTree(['/dashboard']); */
 };

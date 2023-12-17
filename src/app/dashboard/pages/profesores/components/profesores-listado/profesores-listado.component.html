@@ -18,8 +18,8 @@
     </ng-container>
 
     <!-- actions Column -->
-    <ng-container matColumnDef="events">
-        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <ng-container  matColumnDef="events">
+        <th  mat-header-cell *matHeaderCellDef> Acciones </th>
         <td mat-cell *matCellDef="let profesor" class="acciones" >
             <button mat-icon-button (click)="editProfesor.emit(profesor)">
                 <mat-icon color="warn">edit</mat-icon>

@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatInputModule} from '@angular/material/input';
 import { FullNamePipe } from './pipes/full-name.pipe';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     FormErrorsPipe,
@@ -37,8 +38,10 @@ import { FullNamePipe } from './pipes/full-name.pipe';
     MatDialogModule,
     MatNativeDateModule,
     MatInputModule,
+    MatProgressSpinnerModule,
     FormErrorsPipe,
-    FullNamePipe
+    FullNamePipe,
+    
   ]
 })
 export class SharedModule { }

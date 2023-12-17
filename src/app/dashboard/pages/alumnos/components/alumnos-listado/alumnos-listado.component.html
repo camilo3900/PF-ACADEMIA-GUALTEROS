@@ -26,10 +26,12 @@
             <button (click)="detailAlumno(alumno.id)" mat-icon-button color="warn">
                 <mat-icon class="mat-icon">visibility</mat-icon>
               </button>
-            <button mat-icon-button (click)="editAlumno.emit(alumno)">
+            <button   *ngIf="userRole != 'USUARIO'"
+            mat-icon-button (click)="editAlumno.emit(alumno)">
                 <mat-icon color="warn">edit</mat-icon>
             </button>
-            <button mat-icon-button (click)="deleteAlumno.emit(alumno.id)">
+            <button *ngIf="userRole != 'USUARIO'"
+            mat-icon-button (click)="deleteAlumno.emit(alumno.id)">
                 <mat-icon color="warn">delete</mat-icon></button>
         </td>
     </ng-container>

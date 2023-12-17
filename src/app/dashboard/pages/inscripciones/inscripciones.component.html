@@ -1,1 +1,11 @@
-<p>inscripciones works!</p>
+<h1>Inscripciones</h1>
+<div class="d-flex justify-content-end mb-3">
+    <button (click)="nuevaInscripcion()"   mat-flat-button color="accent">
+      <mat-icon>add</mat-icon>
+      Nueva inscripción
+    </button>
+  </div>
+<app-inscripciones-listado
+[dataSource]="(inscripciones$| async) || []"
+(eliminarInscripcion)="onDeleteEnrollment($event)"
+></app-inscripciones-listado>

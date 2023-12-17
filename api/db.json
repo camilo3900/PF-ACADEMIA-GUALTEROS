@@ -37,7 +37,7 @@
       "edad": 15
     },
     {
-      "nombre": "Diegoa",
+      "nombre": "Diego",
       "apellido": "Patarroyo",
       "correo": "diego@email.com",
       "id": 2
@@ -140,6 +140,33 @@
       "apellido": "Marangoni",
       "correo": "rm@email.com",
       "edad": 45
+    }
+  ],
+  "inscripciones": [
+    {
+      "id": 1,
+      "cursoId": 1,
+      "alumnoId": 4
+    },
+    {
+      "id": 2,
+      "cursoId": 3,
+      "alumnoId": 4
+    },
+    {
+      "cursoId": 2,
+      "alumnoId": 4,
+      "id": 3
+    },
+    {
+      "cursoId": 5,
+      "alumnoId": 3,
+      "id": 4
+    },
+    {
+      "cursoId": 3,
+      "alumnoId": 3,
+      "id": 5
     }
   ]
 }

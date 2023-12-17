@@ -1,6 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/auth/auth.service';
 import { Alumno } from 'src/app/models/alumno.class';
+import { Usuario } from 'src/app/models/usuario.class';
 
 @Component({
   selector: 'app-alumnos-listado',
@@ -8,7 +11,8 @@ import { Alumno } from 'src/app/models/alumno.class';
   styleUrls: ['./alumnos-listado.component.scss']
 })
 export class AlumnosListadoComponent {
-
+  public authUser$: Observable<Usuario | null>;
+  public userRole: string|undefined;
   /* Listado es manipulado por el componente padre */
   @Input()
   dataAlumnos: Array<Alumno> = [];
@@ -17,13 +21,28 @@ export class AlumnosListadoComponent {
   editAlumno = new EventEmitter<Alumno>();
   @Output()
   deleteAlumno = new EventEmitter<number>()
-  constructor(private router: Router){
-
+  constructor(private router: Router, private servicio: AuthService){
+    this.authUser$ = this.servicio.authUser;
+    this.getUserRole()
   }
   detailAlumno(alumnoId: number): void{
     this.router.navigate([
       'dashboard', 'alumnos', 'detalle', alumnoId
     ])
+
+  }
+
+  getUserRole(){
+    
+    this.authUser$.subscribe({
+      next: (ev)=>{
+        if(!!ev){
+         this.userRole = ev?.role
+        }
+         
+      }
+    })
+    
 
   }
   /* Array de encabezados de la tabla-alumnos */
